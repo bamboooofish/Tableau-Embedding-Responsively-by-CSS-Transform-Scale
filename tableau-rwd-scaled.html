@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Scale-based Responsive Tableau Visualization</title>
+    <!-- Importing the Tableau Embedding API -->
+    <script
+      type="module"
+      src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.js"
+    ></script>
+    <style>
+      /* Basic styles for the document */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Center the container horizontally */
+      .tableau-container {
+        display: flex;
+        justify-content: center;
+      }
+
+      /* Placeholder for adjusting height dynamically */
+      .maintain-space {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique porro
+      tenetur eius praesentium dolorum consectetur consequatur nostrum at
+      explicabo laboriosam eveniet inventore magnam, velit magni expedita
+      facilis cupiditate et impedit!
+    </p>
+
+    <!-- Container for the Tableau visualization -->
+    <div class="tableau-container">
+      <!-- 
+        Replace the src attribute value with your own Tableau visualization link.
+        You can find the link when you publish your Tableau visualization.
+      -->
+      <tableau-viz
+        id="tableauViz"
+        src="https://public.tableau.com/views/_17205293548220/sheet0?:language=zh-TW&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+      ></tableau-viz>
+    </div>
+
+    <!-- Placeholder div to maintain aspect ratio -->
+    <div class="maintain-space"></div>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse temporibus
+      inventore nemo suscipit, officiis distinctio voluptate aliquam ut? Iste
+      alias in nobis libero dolore. Est quidem eligendi maxime. Iure, mollitia.
+    </p>
+
+    <script>
+      // Get references to the Tableau viz, container, and space elements
+      const viz = document.querySelector('#tableauViz');
+      const tableauContainer = document.querySelector('.tableau-container');
+      const maintainSpace = document.querySelector('.maintain-space');
+      let originalWidth, originalHeight;
+
+      // Event listener for when the Tableau visualization is first interactive
+      viz.addEventListener('firstinteractive', (event) => {
+        // Get the original size of the visualization
+        originalWidth = viz.offsetWidth;
+        originalHeight = viz.offsetHeight;
+
+        // Initial resize
+        resizeViz();
+
+        // Add resize event listener to handle window resizing
+        window.addEventListener('resize', resizeViz);
+      });
+
+      function resizeViz() {
+        // Get the current width of the container
+        const containerWidth = tableauContainer.offsetWidth;
+
+        // Calculate the scale based on the tableau-container's width
+        let scale = Math.min(1, containerWidth / originalWidth);
+        let afterHeight = originalHeight * scale;
+
+        // Apply scale transformation to the tableau-container
+        tableauContainer.style.transform = `scale(${scale})`;
+
+        // Adjust the height of the maintain-space div to match the new height
+        tableauContainer.style.height = `0px`;
+        maintainSpace.style.height = `${afterHeight}px`;
+      }
+    </script>
+  </body>
+</html>
