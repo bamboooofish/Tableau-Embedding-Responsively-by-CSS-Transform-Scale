@@ -8,7 +8,7 @@
 
 ![tableau](https://github.com/user-attachments/assets/b0b8379e-0966-41bb-816f-557d2eb73be4)
 
-**Test in Google Blogger:**
+**Tested on Google Blogger:**
 
 - **Desktop**:
   
