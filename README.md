@@ -1,4 +1,4 @@
-# Tableau Embedding Responsively by CSS Scaled Way
+# Tableau Embedding Responsively by CSS Transform Scale
 
 #### This project explores the responsive embedding of Tableau dashboards, specifically focusing on "fixed-size" dashboards. Its goal is to ensure that the dashboard's width adjusts according to the container's size, maintaining the aspect ratio for proportional scaling of content.
 
