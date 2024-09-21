@@ -4,7 +4,7 @@
 
 **Note**: This project is not intended to adapt the display for different Tableau "device" dashboards.
 
-## What It Looks Like - <a href="https://bamboooofish.github.io/Tableau-Embedding-Responsively-by-CSS-Scaled-Way/" target="_blank">Explore here</a>
+## What It Looks Like - <a href="https://bamboooofish.github.io/Tableau-Embedding-Responsively-by-CSS-Transform-Scale/" target="_blank">Explore here</a>
 
 ![tableau](https://github.com/user-attachments/assets/b0b8379e-0966-41bb-816f-557d2eb73be4)
 
